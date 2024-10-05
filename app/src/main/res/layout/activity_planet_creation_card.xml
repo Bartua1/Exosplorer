@@ -1,0 +1,267 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!-- Container for stars -->
+    <FrameLayout
+        android:id="@+id/star_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!-- Orbit path surrounding the sun (initially hidden) -->
+    <ImageView
+        android:id="@+id/orbit_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/orbit_path_dotted"
+        android:scaleType="centerInside"
+        android:visibility="invisible"/>
+
+    <!-- Earth gif, initially hidden -->
+    <ImageView
+        android:id="@+id/earth_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/exoplanet_gif"
+        android:visibility="invisible"/>
+
+    <FrameLayout
+        android:id="@+id/planet_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!-- Mass Slider CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mass_slider_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp"
+        android:layout_alignParentTop="true"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="6dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="76dp"
+                    android:src="@drawable/mass_slider_icon"
+                    android:scaleType="centerInside"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_mass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mass (in Earth Masses)"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <SeekBar
+                android:id="@+id/mass_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="1"/>
+
+            <TextView
+                android:id="@+id/text_mass_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Radius Slider CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/radius_slider_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mass_slider_card"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="76dp"
+                    android:src="@drawable/rule_slider_icon"
+                    android:scaleType="centerInside"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_radius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radius (in km)"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <SeekBar
+                android:id="@+id/radius_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10000"
+                android:progress="1000"/>
+
+            <TextView
+                android:id="@+id/text_radius_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Card for Similar Exoplanet -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/similar_exoplanet_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radius_slider_card"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        android:gravity="center"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="76dp"
+                    android:src="@drawable/info_slider_icon"
+                    android:scaleType="centerInside"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_similar_exoplanet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Most Similar Exoplanet:"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/text_exoplanet_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Exoplanet Name: Random Planet\nGalaxy: Random Galaxy\nStar Type: Random Star"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:text="@string/start_adventure"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:id="@+id/start_adventure_button"
+        />
+
+    <!-- CardView centered at the bottom of the screen -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp"
+        android:visibility="invisible"
+        android:background="@drawable/white_rounded">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <!-- Laika ImageView taking 30% of the width -->
+            <ImageView
+                android:id="@+id/laika_image_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:src="@drawable/laika"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"/>
+
+            <!-- Introduction TextView taking 70% of the width -->
+            <TextView
+                android:id="@+id/text_intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/introduction_card"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_weight="0.7"
+                android:paddingStart="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

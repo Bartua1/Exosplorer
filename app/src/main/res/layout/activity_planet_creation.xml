@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!-- Container for stars -->
+    <FrameLayout
+        android:id="@+id/star_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!-- Sun rotating GIF centered and smaller -->
+    <ImageView
+        android:id="@+id/sun_image_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/sun_rotating"
+        android:scaleType="centerInside"
+        android:visibility="visible"/>
+
+    <!-- Orbit path surrounding the sun (initially hidden) -->
+    <ImageView
+        android:id="@+id/orbit_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/orbit_path_dotted"
+        android:scaleType="centerInside"
+        android:visibility="invisible"/>
+
+    <!-- Earth gif, initially hidden -->
+    <ImageView
+        android:id="@+id/earth_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/exoplanet_gif"
+        android:visibility="invisible"/>
+
+    <FrameLayout
+        android:id="@+id/planet_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!-- CardView centered at the bottom of the screen -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp"
+        android:visibility="invisible"
+        android:background="@drawable/white_rounded">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <!-- Laika ImageView taking 30% of the width -->
+            <ImageView
+                android:id="@+id/laika_image_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:src="@drawable/laika"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"/>
+
+            <!-- Introduction TextView taking 70% of the width -->
+            <TextView
+                android:id="@+id/text_intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/introduction"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_weight="0.7"
+                android:paddingStart="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
