@@ -54,6 +54,8 @@ public class PlanetCreationActivity extends AppCompatActivity {
         cardView = findViewById(R.id.card_view);
         textIntro = findViewById(R.id.text_intro);
 
+        viewCard = true;
+
         Intent intent2 = getIntent();
         if (intent2 != null && intent2.hasExtra("selected_star")) {
             selected_star = intent2.getStringExtra("selected_star");
